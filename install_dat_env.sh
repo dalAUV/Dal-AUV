@@ -14,14 +14,15 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 # Installation 
 
 sudo apt update -y
-sudo apt install ros-melodic-desktop-desktop-full 
-apt search ros-melodic
+sudo apt upgrade -y
+sudo apt install ros-melodic-desktop-desktop-full -y 
+apt search ros-melodic -y
 
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 # Dependencies for building packages 
-sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential -y
 
 sudo rosdep init
 
@@ -29,7 +30,7 @@ rosdep update
 
 # Installing UUV Sim
 
-sudo apt-get install ros-kinetic-gazebo9-*
+sudo apt-get install ros-kinetic-gazebo9-* -y
 cd ~
 
 mkdir -p ~/catkin_ws/src
