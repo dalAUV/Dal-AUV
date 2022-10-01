@@ -19,14 +19,19 @@ sudo apt update -y
 
 sudo apt install ros-melodic-desktop-full -y
 
+sudo apt search ros-melodic
 
-sudo sh \
-    -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" \
-        > /etc/apt/sources.list.d/ros-latest.list'
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
-wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+source ~/.bashrc
 
-sudo apt-get update
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential -y
+
+sudo apt install python-rosdep -y
+
+sudo rosdep init
+
+rosdep update
 
 sudo apt-get install python3-catkin-tools
 
