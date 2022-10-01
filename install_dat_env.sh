@@ -4,21 +4,29 @@
 # Created By Matthew Cockburn
 
 # setup ROS source list 
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu/ $(lsb_release -sc) main " > /etc/apt/source.list.d/ros-latest.list'
+echo "Setting up ROS source list for apt"
+mkdir ~/dat_install_logs
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' >> ~/dat_install_logs/setup_log.txt
 
 # set up your key
-sudo apt install curl -y
+sudo apt install curl -y 
 
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add - >> ~/dat_install_logs/key_log.txt 
 
 # Installation 
 
 sudo apt update -y
-sudo apt upgrade -y
+
+echo "Installing ROS Melodic"
+
 sudo apt install ros-melodic-desktop-desktop-full -y 
+
 apt search ros-melodic -y
 
+echo "Adding ROS setup to aliases"
+
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+
 source ~/.bashrc
 
 # Dependencies for building packages 
@@ -29,8 +37,7 @@ sudo rosdep init
 rosdep update
 
 # Installing UUV Sim
-
-sudo apt-get install ros-kinetic-gazebo9-* -y
+echo "Installing UUV Sim "
 cd ~
 
 mkdir -p ~/catkin_ws/src
@@ -57,6 +64,6 @@ cd ~/catkin_ws
 catkin_make install
 catkin build
 
-# done?
+# done
 
 
