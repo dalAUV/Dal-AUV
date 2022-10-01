@@ -19,7 +19,6 @@ sudo apt update -y
 
 sudo apt install ros-melodic-desktop-full -y
 
-sudo apt install ros-melodic-uuv-uuv_simulator -y
 
 sudo sh \
     -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" \
@@ -31,6 +30,8 @@ sudo apt-get update
 
 sudo apt-get install python3-catkin-tools
 
+sudo apt install ros-melodic-uuv-uuv_simulator -y
+
 cd ~
 
 mkdir -p ~/catkin_ws/src
@@ -38,6 +39,8 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
 
 catkin init
+
+cd ~/catkin_ws/src
 
 git clone https://github.com/uuvsimulator/uuv_simulator.git
 
