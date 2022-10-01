@@ -17,8 +17,9 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 
 sudo apt update -y
 
+sudo apt install ros-melodic-desktop-full -y
 
-sudo apt install ros-melodic-uuv-uuv_simulator
+sudo apt install ros-melodic-uuv-uuv_simulator -y
 
 sudo sh \
     -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" \
