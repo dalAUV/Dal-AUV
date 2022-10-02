@@ -5,12 +5,12 @@
 
 # setup ROS source list 
 echo "Setting up ROS source list for apt"
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
 
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
 # set up your key
 sudo apt install curl -y 
 
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add - >> ~/dat_install_logs/key_log.txt 
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add - 
 
 # Installation 
 
@@ -38,9 +38,9 @@ rosdep update
 
 echo "Installing Catkin Tools"
 # Installing Catkin Tools
-sudo apt-get install python3-catkin-tools
+sudo apt-get install python3-catkin-tools -y
 
-sudo apt install ros-melodic-uuv-uuv_simulator -y
+sudo apt install ros-melodic-uuv-simulator -y
 
 cd ~
 
@@ -58,7 +58,7 @@ git clone https://github.com/dalAUV/node_examples.git
 # Adding Aliases 
 source /usr/share/gazebo-9/setup.sh
 source /opt/ros/melodic/setup.bash
-source $HOME/catkin_ws/devel/setup.bash
+source ~/catkin_ws/devel/setup.bash
 
 source ~/.bashrc
 
